@@ -23,8 +23,6 @@ public class PeeraiToolWindowFactory implements ToolWindowFactory {
             @NotNull ToolWindow toolWindow
     ){
 
-        TutorService tutorService = new TutorService();
-
         JPanel panel = new JPanel(new BorderLayout());
         JPanel inputPanel = new JPanel();
         JTextArea responseArea = new JTextArea();
@@ -46,8 +44,9 @@ public class PeeraiToolWindowFactory implements ToolWindowFactory {
 
         Content content = ContentFactory.getInstance()
                 .createContent(panel, "", false);
-
         toolWindow.getContentManager().addContent(content);
+
+        TutorService tutorService = new TutorService();
 
         askButton.addActionListener(event ->
         {
